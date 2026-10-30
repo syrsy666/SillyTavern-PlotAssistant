@@ -227,8 +227,11 @@
                 confirm();
             }
         });
-        input.focus();
-        input.setSelectionRange(input.value.length, input.value.length);
+        // 手机端不自动聚焦，避免页面刚打开就被软键盘顶出可视区域。
+        if (globalThis.matchMedia?.('(min-width: 601px)').matches) {
+            input.focus();
+            input.setSelectionRange(input.value.length, input.value.length);
+        }
     }
 
     function addMenuEntry() {
@@ -274,8 +277,8 @@
             .plot-assistant-spacer { flex: 1; }
             .plot-assistant-hint { margin-top: 10px; text-align: right; }
             @media (max-width: 600px) {
-                #plot-assistant-overlay { padding: 10px; }
-                .plot-assistant-dialog { max-height: calc(100dvh - 20px); padding: 14px; overflow-y: auto; }
+                #plot-assistant-overlay { align-items: flex-start; padding: 10px; overflow-y: auto; overscroll-behavior: contain; }
+                .plot-assistant-dialog { flex: none; width: 100%; max-height: calc(100vh - 20px); max-height: calc(100dvh - 20px); margin: 0 auto; padding: 14px; overflow-y: auto; overscroll-behavior: contain; }
                 #plot-assistant-input { min-height: 120px; max-height: 40dvh; }
                 .plot-assistant-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
                 .plot-assistant-actions .menu_button { width: 100%; min-height: 46px; padding: 10px 12px; }
