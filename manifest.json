@@ -1,0 +1,10 @@
+{
+  "display_name": "剧情辅助",
+  "loading_order": 9999,
+  "js": "index.js",
+  "author": "Kimi",
+  "version": "1.1.0",
+  "auto_update": false,
+  "minimum_client_version": "1.12.0",
+  "generate_interceptor": "plotAssistantInterceptor"
+}
