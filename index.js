@@ -265,7 +265,7 @@
             #plot-assistant-menu-item { position: relative; }
             #plot-assistant-menu-item .plot-assistant-dot { display: none; width: 8px; height: 8px; margin-left: auto; border-radius: 50%; background: #65d98a; box-shadow: 0 0 5px #65d98a; }
             #plot-assistant-menu-item.plot-assistant-has-pending .plot-assistant-dot { display: inline-block; }
-            #plot-assistant-overlay { position: fixed; inset: 0; z-index: 30000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,.62); }
+            #plot-assistant-overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; box-sizing: border-box; width: 100vw; height: 100vh; z-index: 30000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,.62); }
             .plot-assistant-dialog { box-sizing: border-box; width: min(620px, 100%); padding: 18px; border: 1px solid var(--SmartThemeBorderColor, #777); border-radius: 12px; background: var(--SmartThemeBgColor, #202020); color: var(--SmartThemeBodyColor, #eee); box-shadow: 0 12px 40px rgba(0,0,0,.45); }
             .plot-assistant-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; font-size: 1.25em; font-weight: 700; }
             .plot-assistant-icon-button { border: 0; background: transparent; color: inherit; font-size: 24px; cursor: pointer; }
@@ -277,8 +277,8 @@
             .plot-assistant-spacer { flex: 1; }
             .plot-assistant-hint { margin-top: 10px; text-align: right; }
             @media (max-width: 600px) {
-                #plot-assistant-overlay { align-items: flex-start; padding: 10px; overflow-y: auto; overscroll-behavior: contain; }
-                .plot-assistant-dialog { flex: none; width: 100%; max-height: calc(100vh - 20px); max-height: calc(100dvh - 20px); margin: 0 auto; padding: 14px; overflow-y: auto; overscroll-behavior: contain; }
+                #plot-assistant-overlay { display: block; height: 100vh; padding: 10px; overflow-y: scroll; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+                .plot-assistant-dialog { box-sizing: border-box; width: 100%; max-height: none; margin: 0 auto; padding: 14px; overflow: visible; }
                 #plot-assistant-input { min-height: 120px; max-height: 40dvh; }
                 .plot-assistant-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
                 .plot-assistant-actions .menu_button { width: 100%; min-height: 46px; padding: 10px 12px; }
