@@ -270,9 +270,20 @@
             #plot-assistant-input { box-sizing: border-box; width: 100%; min-height: 180px; max-height: 55vh; margin: 12px 0 8px; padding: 10px; resize: vertical; border: 1px solid var(--SmartThemeBorderColor, #777); border-radius: 7px; background: var(--SmartThemeInputColor, #303030); color: var(--SmartThemeInputColorText, var(--SmartThemeBodyColor, #eee)); font: inherit; line-height: 1.5; }
             .plot-assistant-status { min-height: 1.5em; font-size: .9em; opacity: .85; }
             .plot-assistant-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+            .plot-assistant-actions .menu_button { box-sizing: border-box; width: auto; min-width: 72px; min-height: 42px; padding: 8px 16px; flex-shrink: 0; white-space: nowrap; writing-mode: horizontal-tb; text-orientation: mixed; line-height: 1.2; }
             .plot-assistant-spacer { flex: 1; }
             .plot-assistant-hint { margin-top: 10px; text-align: right; }
-            @media (max-width: 600px) { .plot-assistant-dialog { padding: 14px; } #plot-assistant-input { min-height: 150px; } }
+            @media (max-width: 600px) {
+                #plot-assistant-overlay { padding: 10px; }
+                .plot-assistant-dialog { max-height: calc(100dvh - 20px); padding: 14px; overflow-y: auto; }
+                #plot-assistant-input { min-height: 120px; max-height: 40dvh; }
+                .plot-assistant-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+                .plot-assistant-actions .menu_button { width: 100%; min-height: 46px; padding: 10px 12px; }
+                .plot-assistant-actions [data-action="cancel"] { grid-column: 1; grid-row: 1; }
+                .plot-assistant-actions [data-action="confirm"] { grid-column: 2; grid-row: 1; }
+                .plot-assistant-actions [data-action="clear"] { grid-column: 1 / -1; grid-row: 2; }
+                .plot-assistant-spacer, .plot-assistant-hint { display: none; }
+            }
         `;
         document.head.appendChild(style);
     }
